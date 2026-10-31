@@ -1,0 +1,21 @@
+@use 'variable' as v;
+@use 'mixin' as m;
+
+:root { @include v.tokens; color-scheme: dark; font-family: 'Pretendard Variable', Pretendard, sans-serif; }
+html {
+  overflow-y: scroll; scrollbar-gutter: stable;
+  &::-webkit-scrollbar { @include m.size(8px); }
+  &::-webkit-scrollbar-track { background: v.$black; }
+  &::-webkit-scrollbar-thumb { background: v.$white; }
+  &::-webkit-scrollbar-button { display: none; @include m.size(0); }
+  &:has(body.is-opening), &:has(body.is-outro) {
+    &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb { background: transparent; }
+  }
+}
+body { min-width: 20rem; background: var(--bg); color: var(--text); line-height: 1.6; }
+#chapters { overflow-anchor: none; }
+:focus-visible { outline: 0; }
+::selection { background: var(--accent); color: var(--bg); }
+.eyebrow, .chapter h2.eyebrow { @include m.font(.75rem, 400, 1.5); margin: 0; text-transform: uppercase; letter-spacing: .1em; }
+.skip-link { @include m.position(fixed, 1rem, auto, auto, 1rem); z-index: 20; padding: 1rem; background: var(--accent); color: var(--bg); transform: translateY(-200%); &:focus { transform: translateY(0); } }
+.vendor-notice { padding: var(--space-3) var(--gutter); color: var(--muted); border-bottom: 1px solid var(--line); font-size: .875rem; }

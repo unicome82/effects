@@ -1,0 +1,22 @@
+$black: #101010;
+$white: #f2f0ea;
+$cobalt: #668acc;
+$mobile: 48rem;
+$serif: 'Source Serif 4', Georgia, serif;
+$stage-padding: calc(var(--header-height) + var(--space-4)) var(--gutter) var(--space-4);
+
+@mixin tokens {
+  --bg: #{$black};
+  --text: #{$white};
+  --muted: #aaa8a2;
+  --line: #383936;
+  --accent: #{$cobalt};
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 7rem;
+  --gutter: clamp(1.25rem, 4vw, 5rem);
+  --header-height: 4.5rem;
+}

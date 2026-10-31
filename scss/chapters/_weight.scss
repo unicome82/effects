@@ -1,0 +1,21 @@
+@use '../variable' as v;
+@use '../mixin' as m;
+
+.chapter.type-weight {
+  --bg: var(--text); --muted: #545650; --travel: 4000px; color: v.$black;
+  &[data-motion='scroll'][data-pinned] .stage { @include m.pin(4); }
+  .stage { background: transparent; }
+  &::before { content: ''; @include m.cover(fixed, 0); background: var(--bg); opacity: 0; pointer-events: none; }
+  &[data-background]::before { opacity: var(--arrive, 0); }
+  &[data-pinned]::before { opacity: 1; }
+  &[data-departing] .stage { opacity: 1; }
+  .field { --start: max(33.333svh, calc(var(--intro-bottom, calc(var(--header-height) + var(--space-5))) + var(--space-3))); padding: 0 var(--gutter); top: var(--start); height: calc(100% - var(--start)); }
+  .copy { @include m.font(calc(max(12vw, 16svh) * 2 / 3), 200, .95, v.$serif); font-variation-settings: 'wght' 200; letter-spacing: -.055em; word-break: break-all; overflow-wrap: anywhere; }
+  .letter { display: inline-block; text-align: center; }
+  &:not([data-motion]) {
+    min-height: 100svh; background: var(--bg);
+    .stage { position: relative; height: auto; min-height: 100svh; }
+    .field { top: 0; height: auto; padding-top: var(--start); }
+  }
+  @media (prefers-reduced-motion: reduce) { background: var(--bg); }
+}

@@ -1,0 +1,41 @@
+@mixin flex($justify: null, $align: null, $direction: null, $gap: null, $display: flex) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+@mixin position($type: absolute, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  @if $top != null and $right != null and $bottom != null and $left != null {
+    inset: $top $right $bottom $left;
+  } @else {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+  }
+}
+@mixin cover($type: absolute, $z: null) {
+  @include position($type, 0, 0, 0, 0);
+  z-index: $z;
+}
+@mixin sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+@mixin pin($z: null) {
+  @include cover(fixed, $z);
+  height: 100svh;
+}
+@mixin size($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin font($size: null, $weight: null, $line: null, $family: null) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line;
+}

@@ -1,0 +1,44 @@
+@use '../variable' as v;
+@use '../mixin' as m;
+
+.chapter.type-awakening {
+  --bg: var(--text); --muted: #{v.$black}; --line: rgb(16 16 16 / .2);
+  background: var(--bg); color: v.$black;
+  padding: 0;
+  .stage {
+    @include m.flex(space-between, stretch, column);
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    padding: var(--space-4) var(--gutter);
+    padding-top: calc(var(--header-height) + var(--space-4));
+    background: var(--bg);
+    overflow: clip;
+  }
+  h1 { position: relative; margin-block: clamp(2rem, 5vh, 4rem); @include m.font(clamp(2.5rem, 9.4vw, 10rem), 200, null, v.$serif); font-variation-settings: 'wght' 200; }
+  .source {
+    position: absolute;
+    @include m.size(1px);
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .visual, .line { display: block; }
+  .visual { visibility: hidden; }
+  &[data-motion] .visual { visibility: visible; }
+  .line { white-space: nowrap; }
+  .glyph, .face { display: inline-block; }
+  .glyph { vertical-align: top; text-align: center; }
+  .accent { display: inline-block; @include m.size(.13em); margin-left: .04em; background: v.$black; }
+  .outro .description { max-width: 25rem; }
+  .hint { margin-top: var(--space-1); color: var(--muted); font-size: .75rem; }
+  &[data-motion][data-pinned] .stage { @include m.position(fixed, 0, 0, $left: 0); z-index: 1; }
+  &[data-motion='desktop'], &[data-motion='mobile'] {
+    min-height: max(430svh, calc(100svh + 3300px));
+    .stage { position: sticky; top: 0; }
+  }
+  @media (max-width: v.$mobile) {
+    h1 { font-size: clamp(2.3rem, 9.4vw, 4.5rem); }
+  }
+}

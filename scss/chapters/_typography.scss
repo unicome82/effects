@@ -1,0 +1,26 @@
+@use '../variable' as v;
+@use '../mixin' as m;
+
+.chapter.type-typography {
+  color: var(--bg);
+  background: var(--text);
+  --muted: #545650;
+  padding: 0;
+  .stage { @include m.flex(center, stretch, column); position: relative; min-height: 100svh; padding: v.$stage-padding; overflow: clip; background: var(--text); }
+  .intro { @include m.position($top: calc(var(--header-height) + var(--space-4)), $right: var(--gutter), $left: var(--gutter)); }
+  h2 { position: relative; z-index: 1; margin-block: var(--space-4); @include m.font(clamp(3.75rem, 10vw, 10rem), null, .87); letter-spacing: -.045em; }
+  .source { @include m.position(absolute, auto, auto, auto, auto); @include m.size(1px); overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .visual { display: block; }
+  .line { display: block; white-space: nowrap; }
+  .glyph, .face { display: inline-block; }
+  &[data-motion='scroll'][data-pinned] .stage { @include m.pin(4); }
+  &[data-motion='scroll'] {
+    min-height: 885svh;
+    .stage { @include m.sticky; min-height: 0; }
+    h2 { width: 65%; }
+  }
+  @media (max-width: v.$mobile) {
+    h2 { font-size: clamp(3.75rem, 17vw, 7rem); margin-block: var(--space-5); }
+    &[data-motion='scroll'] h2 { width: 100%; }
+  }
+}

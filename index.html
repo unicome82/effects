@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <meta name="description" content="BEYOND INTERACTION — 일곱 개의 장면으로 이어지는 새로운 가능성.">
+  <title>BEYOND INTERACTION</title>
+  <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@200..900&amp;display=swap">
+  <link rel="stylesheet" href="scss/style.css">
+  <script defer src="js/core/vendors.js"></script>
+  <script defer src="js/core/opening.js"></script>
+  <script defer src="js/chapters/chapter.js"></script>
+  <script defer src="js/core/registry.js"></script>
+  <script defer src="js/core/scroll.js"></script>
+  <script defer src="js/core/navigation.js"></script>
+  <script defer src="js/core/transitions.js"></script>
+  <script defer src="js/effects/magnetic-cursor.js"></script>
+  <script defer src="js/effects/text-reveal.js"></script>
+  <script defer src="js/effects/text-dispersion.js"></script>
+  <script defer src="js/chapters/awakening.js"></script>
+  <script defer src="js/effects/variable-type.js"></script>
+  <script defer src="js/chapters/typography.js"></script>
+  <script defer src="js/effects/horizontal-scroll.js"></script>
+  <script defer src="js/effects/parallax.js"></script>
+  <script defer src="js/effects/image-zoom.js"></script>
+  <script defer src="js/chapters/journey.js"></script>
+  <script defer src="js/chapters/dimension.js"></script>
+  <script defer src="js/chapters/matter.js"></script>
+  <script defer src="js/chapters/magnetic.js"></script>
+  <script defer src="js/chapters/weight.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <div class="opening" role="dialog" aria-label="시작 화면" aria-modal="true" hidden><p lang="en">BEYOND INTERACTION</p><button class="skip" type="button" lang="en">SKIP</button></div>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="site-header">
+    <a class="brand" href="index.html?intro=1" aria-label="BEYOND INTERACTION 인트로부터 다시 시작">BEYOND INTERACTION</a>
+    <nav class="chapter-menu" aria-label="챕터 탐색"><a href="#awakening">Awakening</a><a href="#dimension">Dimension</a><a href="#typography">Typography</a><a href="#matter">Matter</a><a href="#journey">Journey</a><a href="#magnetic">Magnetic</a><a href="#weight">Weight</a></nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <p class="vendor-notice" data-vendor-status role="status" hidden></p>
+    <div id="chapters">
+<section class="chapter type-awakening" id="awakening" data-chapter="awakening" data-header="dark" aria-labelledby="awakening-title" tabindex="-1">
+  <div class="stage">
+    <div class="intro"><p class="eyebrow" lang="en">01 / Awakening</p><p class="theme" lang="en">The beginning</p></div>
+    <h1 id="awakening-title" lang="en"><span class="source">BEYOND INTERACTION</span><span class="visual" aria-hidden="true"><span class="line" data-line>BEYOND</span><span class="line" data-line>INTERACTION<span class="accent" data-reveal></span></span></span></h1>
+    <div class="outro">
+      <p class="description">하나의 문장에서, 새로운 감각이 시작됩니다.</p><p class="hint">아래로 스크롤해 이야기를 시작하세요.</p>
+    </div>
+  </div>
+</section>
+<section class="chapter type-dimension" id="dimension" data-chapter="dimension" aria-labelledby="dimension-title" tabindex="-1">
+  <div class="stage">
+  <div class="intro"><p class="eyebrow" lang="en">02 / Dimension</p><p class="theme" lang="en">A different perspective</p></div>
+  <h2 id="dimension-title" lang="en">A new<br><span class="outline">dimension.</span></h2>
+  <div class="scene" role="img" aria-label="스크롤에 따라 회전하고 분해되는 은빛 추상 조각">
+    <img class="poster" src="assets/images/torus.jpg" width="1200" height="1200" alt="" decoding="async">
+    <div class="canvas" aria-hidden="true"></div>
+    
+  </div>
+  <p class="description">평면을 벗어나, 형태와 공간 사이를 바라봅니다.<span class="hint">스크롤로 조각을 펼치고, 마우스로 시선을 바꿔보세요.</span></p>
+  </div>
+</section>
+<section class="chapter type-typography" id="typography" data-chapter="typography" data-header="dark" aria-labelledby="typography-title" tabindex="-1">
+  <div class="stage">
+    <div class="intro"><p class="eyebrow" lang="en">03 / Typography</p><p class="theme" lang="en">Words become form</p></div>
+    <h2 id="typography-title" lang="en"><span class="source">WORDS TAKE SHAPE</span><span class="visual" aria-hidden="true"><span class="line" data-line>WORDS</span><span class="line" data-line>TAKE</span><span class="line" data-line>SHAPE</span></span></h2>
+  </div>
+</section>
+<section class="chapter type-matter" id="matter" data-chapter="matter" aria-labelledby="matter-title" tabindex="-1">
+  <div class="stage">
+    <svg class="filters" aria-hidden="true" width="0" height="0"><defs>
+      <filter id="matter-flow" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency=".0025 .0035" numOctaves="1" seed="8" result="noise"/>
+        <feGaussianBlur in="noise" stdDeviation="2" result="smooth"/>
+        <feDisplacementMap in="SourceGraphic" in2="smooth" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs></svg>
+    <div class="surface">
+      <div class="texture">
+        <div class="slides">
+          <img class="image" src="assets/images/chrome.jpg" width="1672" height="941" alt="물결처럼 흐르는 은빛 크롬 표면" decoding="async">
+          <img class="image" src="assets/images/metal.jpg" width="1254" height="1254" alt="겹겹이 흐르는 액체 금속의 파동" decoding="async">
+          <img class="image" src="assets/images/blue-chrome.jpg" width="1254" height="1254" alt="푸른 빛이 반사되는 크롬 물결" decoding="async">
+          <img class="image" src="assets/images/shards.jpg" width="1254" height="1254" alt="빛을 반사하며 흩어진 금속 조각" decoding="async">
+          <img class="image" src="assets/images/ribbon.jpg" width="1254" height="1254" alt="빛을 따라 휘어지는 유리 리본 조각" decoding="async">
+          <img class="image" src="assets/images/swirl.jpg" width="1254" height="1254" alt="부드럽게 감기는 유리 소용돌이" decoding="async">
+        </div>
+      </div>
+    </div>
+    <div class="copy">
+      <div class="intro"><p class="eyebrow" lang="en">04 / Matter</p><p class="theme" lang="en">Beyond the surface</p></div>
+      <h2 id="matter-title" lang="en"><span class="line"><span class="word">Beyond</span></span> <span class="line"><span class="word">the</span></span> <span class="line"><span class="word">surface.</span></span></h2>
+      <p class="description">단단한 경계 너머, 새로운 질감을 상상합니다.</p>
+    </div>
+    <button class="switch" type="button" aria-label="다음 배경 이미지" disabled></button>
+  </div>
+</section>
+<section class="chapter type-journey" id="journey" data-chapter="journey" aria-labelledby="journey-title" tabindex="-1">
+  <div class="stage">
+    <div class="intro"><p class="eyebrow" lang="en">05 / Journey</p><p class="theme" lang="en">A change of scenery</p></div>
+    <div class="heading"><h2 id="journey-title" lang="en"><span class="word">A</span> <span class="word">story.</span> <span class="word">Many</span> <span class="word">perspectives.</span></h2><p class="description"><span class="word">빛을</span> <span class="word">따라,</span> <span class="word">새로운</span> <span class="word">시선으로.</span></p></div>
+    <div class="viewport">
+      <ol class="track">
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/arches.jpg" width="1672" height="941" alt="반복되는 콘크리트 아치 회랑" decoding="async"></div></div><figcaption><span lang="en">arches</span><span>반복 속에서 발견한 리듬.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/cube.jpg" width="1672" height="941" alt="빛과 그림자가 만드는 큐브 공간" decoding="async"></div></div><figcaption><span lang="en">cube</span><span>형태 사이로 깊어지는 공간.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/curves.jpg" width="1672" height="941" alt="빛과 그림자가 교차하는 콘크리트 곡선 구조물" decoding="async"></div></div><figcaption><span lang="en">curves</span><span>곡선을 따라 달라지는 시선.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/hall.jpg" width="1672" height="941" alt="빛이 스며드는 넓은 홀" decoding="async"></div></div><figcaption><span lang="en">hall</span><span>고요한 공간에 머무는 빛.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/oculus.jpg" width="1672" height="941" alt="둥근 천창의 빛이 비추는 콘크리트 홀" decoding="async"></div></div><figcaption><span lang="en">oculus</span><span>빛이 만드는 시작.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/portal.jpg" width="1672" height="941" alt="푸른 포털을 품은 콘크리트 사원" decoding="async"></div></div><figcaption><span lang="en">portal</span><span>다음 가능성을 향한 문.</span></figcaption></figure></li>
+        <li><figure><div class="frame"><div class="plane"><img src="assets/images/stairs.jpg" width="1672" height="941" alt="빛을 향해 이어지는 계단" decoding="async"></div></div><figcaption><span lang="en">stairs</span><span>한 걸음 너머로 이어지는 여정.</span></figcaption></figure></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+<section class="chapter type-magnetic" id="magnetic" data-chapter="magnetic" aria-labelledby="magnetic-title" tabindex="-1">
+  <div class="stage">
+    <div class="intro"><h2 class="eyebrow" id="magnetic-title" lang="en">06 / Magnetic</h2><p class="theme" lang="en">An invisible force.</p></div>
+    <div class="field" role="img" aria-label="커서와 터치를 피해 서로 다른 거리로 흩어지며 회전하는 가느다란 선"><div class="pattern"><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div><div class="row"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div></div></div>
+  </div>
+</section>
+<section class="chapter type-weight" id="weight" data-chapter="weight" data-header="dark" aria-labelledby="weight-title" tabindex="-1">
+  <div class="stage">
+    <div class="intro"><h2 class="eyebrow" id="weight-title" lang="en">07 / Weight</h2><p class="theme" lang="en">The weight of attention.</p></div>
+    <div class="field">
+      <p class="copy" lang="en">The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down, so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well. Either the well was very deep, or she fell very slowly, for she had plenty of time as she went down to look about her and to wonder what was going to happen next. First, she tried to look down and make out what she was coming to, but it was too dark to see anything; then she looked at the sides of the well, and noticed that they were filled with cupboards and book-shelves; here and there she saw maps and pictures hung upon pegs.</p>
+    </div>
+  </div>
+</section>
+</div>
+    <footer class="site-footer" aria-label="여정 마무리">
+      <div class="stage">
+        <p class="copyright" lang="en">© 2026 BEYOND INTERACTION. All rights reserved.</p>
+        <a href="index.html?intro=1">처음으로 돌아가기 <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

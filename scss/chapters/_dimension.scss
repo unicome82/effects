@@ -1,0 +1,29 @@
+@use '../mixin' as m;
+@use '../variable' as v;
+
+.chapter.type-dimension {
+  --bg: #{v.$black};
+  padding: 0;
+  background: var(--bg);
+  .stage { position: relative; min-height: 100svh; padding: v.$stage-padding; @include m.flex($direction: column); overflow: clip; background: var(--bg); }
+  h2 { position: relative; z-index: 1; margin-block: var(--space-3); @include m.font(clamp(3.25rem, 8vw, 8rem), null, .95, v.$serif); pointer-events: none; }
+  .outline { color: transparent; -webkit-text-stroke: 1px v.$white; }
+  .scene { position: relative; flex: 1; min-height: 20rem; }
+  .poster { display: block; @include m.size(100%, min(55svh, 35rem)); object-fit: cover; }
+  .canvas { @include m.cover; opacity: 0; }
+  canvas { display: block; @include m.size; }
+  .description { position: relative; z-index: 1; margin-top: var(--space-3); max-width: 28rem; font-size: .875rem; }
+  .hint { display: block; margin-top: .5rem; font-size: .75rem; }
+  &[data-view='3d'][data-pinned], &[data-view='poster'][data-arriving], &[data-view='poster'][data-departing] {
+    .stage { @include m.pin(3); }
+  }
+  &[data-view='3d'] {
+    min-height: 240svh;
+    .stage { @include m.sticky; }
+    .scene { @include m.cover; min-height: 0; }
+    .poster { visibility: hidden; }
+    .canvas { opacity: 1; }
+    .description { margin-top: auto; pointer-events: none; }
+  }
+  &:not([data-view='3d']) .hint { display: none; }
+}

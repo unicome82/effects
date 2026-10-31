@@ -1,0 +1,11 @@
+@use 'variable' as v;
+@use 'mixin' as m;
+
+.site-footer {
+  position: relative; z-index: 20; min-height: 100svh; color: v.$white; text-align: center;
+  &[data-arriving] .stage { pointer-events: auto; }
+  .stage { @include m.flex(center, center, column, var(--space-3)); min-height: 100svh; padding: var(--space-5) var(--gutter); background: var(--bg); }
+  &[data-pinned] .stage { @include m.pin(5); }
+  .copyright { font-size: .8125rem; }
+  a { padding: .75rem 1.25rem; border: 1px solid var(--line); font-size: 1rem; &:hover { border-color: v.$white; } }
+}

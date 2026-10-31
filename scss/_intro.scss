@@ -1,0 +1,38 @@
+@use 'variable' as v;
+@use 'mixin' as m;
+
+$outside: translate3d(var(--x), var(--y), 0) rotate(var(--rotate)) scale(5);
+
+.opening {
+  @include m.cover(fixed, 30);
+  @include m.flex(center, center, column, var(--space-5));
+  padding: var(--gutter); overflow: clip; background: v.$black; color: v.$white; touch-action: none;
+  &.is-holding .letter { animation: none; }
+  &.is-leaving {
+    animation: opening-out .9s .3s both;
+    .letter { font-weight: 900; animation: opening-return 1.2s cubic-bezier(.4, 0, .8, .5) both; }
+  }
+  &.is-skipping { animation: opening-skip .3s both; }
+  p { @include m.font(clamp(1.2rem, 4.8vw, 5rem), 900, 1.2); letter-spacing: -.04em; white-space: pre; }
+  .letter { display: inline-block; font-weight: 200; animation: opening-letter 1.2s calc(var(--i) * .02s) cubic-bezier(.16, 1, .3, 1) both; }
+  .skip { position: relative; z-index: 1; padding: .75rem 2rem; border: 1px solid currentColor; border-radius: 2rem; background: transparent; color: inherit; font-weight: 600; &:hover { background: v.$white; color: v.$black; } }
+  @media (prefers-reduced-motion: reduce) {
+    &.is-leaving, &.is-skipping { animation-duration: .35s; animation-delay: 0s; }
+    .letter, &.is-holding .letter, &.is-leaving .letter { font-weight: 900; animation: none; }
+  }
+}
+@keyframes opening-letter {
+  from { opacity: 0; transform: $outside; }
+  to { opacity: 1; transform: none; }
+}
+@keyframes opening-return {
+  from { transform: none; }
+  to { transform: $outside; }
+}
+@keyframes opening-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes opening-skip {
+  to { opacity: 0; }
+}

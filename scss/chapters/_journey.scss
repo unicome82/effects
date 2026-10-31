@@ -1,0 +1,60 @@
+@use '../variable' as v;
+@use '../mixin' as m;
+
+.chapter.type-journey {
+  padding: 0;
+  .stage { padding: v.$stage-padding; background: var(--bg); }
+  .heading { @include m.flex(space-between, end, row, var(--space-3)); margin-block: var(--space-3); }
+  h2 { max-width: 32rem; margin: 0; @include m.font(clamp(1.125rem, 1.6vw, 1.5rem), null, 1.2); letter-spacing: -.035em; }
+  .description { color: var(--muted); font-size: .75rem; }
+  .heading .word { display: inline-block; }
+  .track { display: grid; gap: var(--space-4); list-style: none; padding: 0; margin: 0; }
+  figure { margin: 0; }
+  .frame { overflow: hidden; background: var(--bg); }
+  .plane { @include m.size; }
+  img { display: block; @include m.size(100%, auto); aspect-ratio: 16 / 9; object-fit: cover; opacity: .9; }
+  figcaption {
+    @include m.flex(space-between, end, row, 1rem); padding-top: var(--space-2); color: var(--muted); line-height: 1;
+    > span:first-child { @include m.font(clamp(3rem, 6vw, 6rem), 900); letter-spacing: -.04em; }
+    > span:last-child {
+      @include m.flex(space-between, center, row, 1rem); font-size: clamp(.5rem, 1vw, 1rem); word-break: keep-all; flex: 1;
+      &:before { content: ''; height: 2px; flex: 1; background: v.$white; }
+    }
+  }
+  &[data-motion='loading'] figcaption, &[data-motion='mobile'] figcaption { opacity: 0; visibility: hidden; }
+  &[data-motion='desktop'] {
+    min-height: calc(100svh + var(--travel, 0px));
+    .stage { @include m.sticky; @include m.flex($direction: column); flex: none; padding: 0; overflow: clip; }
+    &[data-pinned] .stage { @include m.pin(4); }
+    .intro { @include m.position(absolute, calc(var(--header-height) + var(--space-3)), var(--gutter), $left: var(--gutter)); z-index: 5; color: v.$white; }
+    .theme { color: v.$white; }
+    .eyebrow, .theme { font-size: .7rem; }
+    .heading {
+      @include m.cover($z: 5); display: block; margin: 0; color: v.$white; pointer-events: none;
+      h2, .description { @include m.position($left: 50%); width: max-content; max-width: none; margin: 0; transform: translate(-50%, -50%); }
+      h2 { top: 43%; @include m.font(clamp(2rem, 6vw, 6rem), null, 1.05); white-space: nowrap; }
+      .description { top: 58%; @include m.font(clamp(1.125rem, 2vw, 1.75rem), null, 1.4); }
+      .word { opacity: 0; }
+    }
+    .description { color: v.$white; }
+    .intro, .heading { opacity: calc(1 - var(--end, 0)); }
+    .viewport { @include m.cover; overflow: hidden; opacity: calc(1 - var(--end, 0)); }
+    .track { display: flex; gap: 0; height: 100%; }
+    li { position: relative; flex: 0 0 100%; min-width: 0; height: 100%; }
+    figure { @include m.flex($direction: column); height: 100%; }
+    .frame { flex: 1; min-height: 0; }
+    .plane { width: 100%; }
+    img { height: 100%; aspect-ratio: auto; transform: scale(1.12); opacity: 0; }
+    figcaption { padding-bottom: 2em; @include m.position(absolute, $right: var(--gutter), $bottom: var(--space-3), $left: var(--gutter)); color: v.$white; opacity: 0; visibility: hidden; }
+    &[data-arriving] {
+      .stage { z-index: 5; opacity: var(--arrive, 0); }
+      .intro { transform: translateY(calc((1 - var(--arrive, 0)) * 1rem)); }
+    }
+  }
+  @media (max-width: v.$mobile) {
+    .heading { align-items: center; justify-content: center; flex-direction: column; min-height: 40svh; text-align: center; }
+    h2 { font-size: clamp(2rem, 8vw, 3rem); }
+    .heading .description { font-size: 1.125rem; }
+    figcaption { align-items: start; flex-direction: column; gap: .25rem; }
+  }
+}

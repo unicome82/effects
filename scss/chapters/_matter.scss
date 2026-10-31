@@ -1,0 +1,48 @@
+@use '../variable' as v;
+@use '../mixin' as m;
+
+.chapter.type-matter {
+  padding: 0;
+  background: #191b20;
+  .stage { position: relative; overflow: clip; }
+  &[data-motion][data-pinned] .stage { @include m.pin(5); }
+  &[data-departing] .stage { pointer-events: none; }
+  .filters { position: absolute; pointer-events: none; }
+  .surface {
+    position: relative; isolation: isolate; height: 60svh; min-height: 20rem; overflow: hidden; background: #000;
+    &::after { content: ''; @include m.cover($z: 1); background: rgb(0 0 0 / .4); pointer-events: none; }
+  }
+  .texture, .slides, .image { @include m.cover; @include m.size; }
+  .slides { isolation: isolate; }
+  .image { display: block; object-fit: cover; object-position: center; }
+  .image:not(:first-child) { opacity: 0; }
+  .copy { padding: v.$stage-padding; }
+  h2 { margin-block: var(--space-4); @include m.font(clamp(6rem, 12vw, 10rem), null, .95, v.$serif); text-align: center; .word { display: inline-block; } }
+  .line { display: block; }
+  .description { max-width: 28rem; text-shadow: 0 1px 8px v.$black; }
+  .switch { @include m.position(absolute, $right: var(--gutter), $bottom: var(--space-3)); z-index: 6; display: none; @include m.size(5.5rem); padding: 0; border: 0; border-radius: 50%; background: v.$white; mix-blend-mode: difference; }
+  &[data-motion] .switch { display: flex; }
+  &[data-motion][data-arriving] .switch { display: none; }
+  &[data-pointer='on'] {
+    .stage, .switch { cursor: none; }
+    .switch { inset: 0 auto auto 0; }
+  }
+  .switch:disabled { pointer-events: none; }
+  &[data-motion='desktop'], &[data-motion='mobile'] {
+    min-height: calc(100svh + var(--travel, 0px));
+    .stage { @include m.sticky; }
+    .surface { @include m.cover; height: 100%; min-height: 0; }
+    .copy { position: relative; @include m.flex(center, center, column); height: 100%; }
+  }
+  &[data-motion='desktop'] {
+    .image { transform: scale(1.07); }
+    &[data-render='on'] .slides { filter: url('#matter-flow'); }
+  }
+  &[data-motion='mobile'] {
+    .image { transform: scale(1.025); }
+  }
+  @media (max-width: v.$mobile), (hover: none) and (pointer: coarse) {
+    h2 { font-size: 20vw; }
+    &[data-motion] .switch { display: none; }
+  }
+}
